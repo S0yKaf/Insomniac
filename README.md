@@ -1,18 +1,17 @@
-<img align="left" width="80" height="80" src="https://raw.githubusercontent.com/alexal1/Insomniac/master/res/icon.jpg" alt="Insomniac">
+<img align="left" width="80" height="80" src="https://raw.githubusercontent.com/S0yKaf/Insomniac/master/res/icon.jpg" alt="Insomniac">
 
 # Insomniac
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/alexal1/Insomniac?label=latest%20version)
 ![Python](https://img.shields.io/badge/built%20with-Python3-red.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
 
-[español](https://github.com/alexal1/Insomniac/blob/master/res/README_es.md) | [português](https://github.com/alexal1/Insomniac/blob/master/res/README_pt_BR.md)
+[español](https://github.com/S0yKaf/Insomniac/blob/master/res/README_es.md) | [português](https://github.com/S0yKaf/Insomniac/blob/master/res/README_pt_BR.md)
 
 Liking and following automatically on your Android phone/tablet. No root required: it works on [UI Automator](https://developer.android.com/training/testing/ui-automator), which is an official Android UI testing framework.
 
-<img src="https://raw.githubusercontent.com/alexal1/Insomniac/master/res/demo.gif">
+<img src="https://raw.githubusercontent.com/S0yKaf/Insomniac/master/res/demo.gif">
 
 ### How to install
-1. Clone project: `git clone https://github.com/alexal1/Insomniac.git`
+1. Clone project: `git clone https://github.com/S0yKaf/Insomniac.git`
 2. Go to Insomniac folder: `cd Insomniac`
 3. Install required libraries: `pip3 install -r requirements.txt`
 4. Download and unzip [Android platform tools](https://developer.android.com/studio/releases/platform-tools), move them to a directory where you won't delete them accidentally, e.g.
@@ -20,12 +19,12 @@ Liking and following automatically on your Android phone/tablet. No root require
 mkdir -p ~/Library/Android/sdk
 mv <path-to-downloads>/platform-tools/ ~/Library/Android/sdk
 ```
-5. [Add platform-tools path to the PATH environment variable](https://github.com/alexal1/Insomniac/wiki/Adding-platform-tools-to-the-PATH-environment-variable). If you do it correctly, terminal / command prompt command `adb devices` will print `List of devices attached`
+5. [Add platform-tools path to the PATH environment variable](https://github.com/S0yKaf/Insomniac/wiki/Adding-platform-tools-to-the-PATH-environment-variable). If you do it correctly, terminal / command prompt command `adb devices` will print `List of devices attached`
 
 ### How to install on Raspberry Pi OS
 1. Update apt-get: `sudo apt-get update`
 2. Install ADB and Fastboot: `sudo apt-get install -y android-tools-adb android-tools-fastboot`
-3. Clone project: `git clone https://github.com/alexal1/Insomniac.git`
+3. Clone project: `git clone https://github.com/S0yKaf/Insomniac.git`
 4. Go to Insomniac folder: `cd Insomniac`
 5. Install required libraries: `pip3 install -r requirements.txt`
 
@@ -108,7 +107,7 @@ Full list of command line arguments:
 
 ### Analytics
 There also is an analytics tool for this bot. It is a script that builds a report in PDF format. The report contains account's followers growth graphs for different periods. Liking, following and unfollowing actions' amounts are on the same axis to determine bot effectiveness. The report also contains stats of sessions length for different configurations that you've used. All data is taken from `sessions.json` file that's generated during bot's execution.
-<img src="https://raw.githubusercontent.com/alexal1/Insomniac/master/res/analytics_sample.png">
+<img src="https://raw.githubusercontent.com/S0yKaf/Insomniac/master/res/analytics_sample.png">
 
 To get access to the analytics tool you have to [join Patreon $10 tier](https://www.patreon.com/insomniac_bot).
 
@@ -131,12 +130,12 @@ We have a [Discord server](https://discord.gg/59pUYCw) which is the most conveni
 
 <p>
   <a href="https://discord.gg/59pUYCw">
-    <img hspace="3" alt="Discord Server" src="https://raw.githubusercontent.com/alexal1/Insomniac/master/res/discord.png" height=84/>
+    <img hspace="3" alt="Discord Server" src="https://raw.githubusercontent.com/S0yKaf/Insomniac/master/res/discord.png" height=84/>
   </a>
   <a href="https://t.me/insomniac_chat">
-    <img hspace="3" alt="Telegram Chat" src="https://raw.githubusercontent.com/alexal1/Insomniac/master/res/telegram.png" height=84/>
+    <img hspace="3" alt="Telegram Chat" src="https://raw.githubusercontent.com/S0yKaf/Insomniac/master/res/telegram.png" height=84/>
   </a>
   <a href="https://www.patreon.com/insomniac_bot">
-    <img hspace="3" alt="Patreon Page" src="https://raw.githubusercontent.com/alexal1/Insomniac/master/res/patreon.png" height=84/>
+    <img hspace="3" alt="Patreon Page" src="https://raw.githubusercontent.com/S0yKaf/Insomniac/master/res/patreon.png" height=84/>
   </a>
 </p>
