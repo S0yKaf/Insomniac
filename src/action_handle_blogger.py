@@ -58,8 +58,8 @@ def _open_user_followers(device, username):
         username_view = device.find(resourceId='com.instagram.android:id/row_search_user_username',
                                     className='android.widget.TextView',
                                     text=username)
-                                    
-        random_sleep()
+
+        quick_sleep()
         if not username_view.exists():
             print_timeless(COLOR_FAIL + "Cannot find user @" + username + ", abort." + COLOR_ENDC)
             return False
@@ -110,7 +110,7 @@ def _iterate_over_followers(device, interaction, is_follow_limit_reached, storag
     prev_screen_iterated_followers = []
     while True:
         print("Iterate over visible followers")
-        random_sleep()
+        quick_sleep()
         screen_iterated_followers = []
         screen_skipped_followers_count = 0
 
@@ -208,7 +208,7 @@ def _interact_with_user(device,
         print("It's you, skip.")
         return False, False
 
-    random_sleep()
+    quick_sleep()
 
     if not profile_filter.check_profile(device, username):
         return False, False
@@ -245,7 +245,7 @@ def _interact_with_user(device,
         row = photo_index // 3
         column = photo_index - row * 3
 
-        random_sleep()
+        quick_sleep()
         print("Open and like photo #" + str(i + 1) + " (" + str(row + 1) + " row, " + str(column + 1) + " column)")
         if not _open_photo_and_like(device, row, column, on_like):
             print(COLOR_OKGREEN + "Less than " + str(number_of_rows_to_use * 3) + " photos." + COLOR_ENDC)
@@ -283,31 +283,36 @@ def _open_photo_and_like(device, row, column, on_like):
     if not open_photo():
         return False
 
-    random_sleep()
-    print("Double click!")
+    quick_sleep()
     photo_view = device.find(resourceId='com.instagram.android:id/layout_container_main',
                              className='android.widget.FrameLayout')
+
+    if randint(1,100) >= 77:
+        print("Admiring Photo!")
+        photo_view.pinch()
+        admire_sleep()
+
+    print("Double click!")
     photo_view.double_click()
-    random_sleep()
 
-    # If double click didn't work, set like by icon click
-    try:
-        # Click only button which is under the action bar and above the tab bar.
-        # It fixes bugs with accidental back / home clicks.
-        for like_button in device.find(resourceId='com.instagram.android:id/row_feed_button_like',
-                                       className='android.widget.ImageView',
-                                       selected=False):
-            if is_in_interaction_rect(like_button):
-                print("Double click didn't work, click on icon.")
-                like_button.click()
-                random_sleep()
-                break
-    except DeviceFacade.JsonRpcError:
-        print("Double click worked successfully.")
+    # # If double click didn't work, set like by icon click
+    # try:
+    #     # Click only button which is under the action bar and above the tab bar.
+    #     # It fixes bugs with accidental back / home clicks.
+    #     for like_button in device.find(resourceId='com.instagram.android:id/row_feed_button_like',
+    #                                    className='android.widget.ImageView',
+    #                                    selected=False):
+    #         if is_in_interaction_rect(like_button):
+    #             print("Double click didn't work, click on icon.")
+    #             like_button.click()
+    #             break
+    # except DeviceFacade.JsonRpcError:
+    #     print("Double click worked successfully.")
 
-    detect_block(device)
+    # detect_block(device)
     on_like()
     print("Back to profile")
+    very_quick_sleep()
     device.back()
     return True
 

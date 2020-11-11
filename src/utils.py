@@ -3,7 +3,7 @@ import os
 import re
 import shutil
 from datetime import datetime
-from random import randint
+from random import randint,triangular
 from time import sleep
 
 COLOR_HEADER = '\033[95m'
@@ -63,8 +63,23 @@ def check_adb_connection(is_device_id_provided):
 
 
 def random_sleep():
-    delay = randint(1, 4)
+    delay = triangular(1.0, 4.0)
     print("Sleep for " + str(delay) + (delay == 1 and " second" or " seconds"))
+    sleep(delay)
+
+def quick_sleep():
+    delay = triangular(0.4, 1.4)
+    print("Sleep for " + str(delay) + (delay == 1 and " second" or " seconds"))
+    sleep(delay)
+
+def very_quick_sleep():
+    delay = triangular(0.4, 0.6)
+    print("Sleep for " + str(delay) + (delay == 1 and " second" or " seconds"))
+    sleep(delay)
+
+def admire_sleep():
+    delay = triangular(5.0, 8.0)
+    print("Admiring for " + str(delay) + (delay == 1 and " second" or " seconds"))
     sleep(delay)
 
 
@@ -74,6 +89,11 @@ def open_instagram(device_id):
              " shell am start -n com.instagram.android/com.instagram.mainactivity.MainActivity").close()
     random_sleep()
 
+def wake_device(device_id):
+    print("waking up device")
+    os.popen("adb" + ("" if device_id is None else " -s " + device_id) +
+             " shell input keyevent KEYCODE_WAKEUP").close()
+    random_sleep()
 
 def close_instagram(device_id):
     print("Close Instagram app")

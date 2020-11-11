@@ -64,14 +64,14 @@ class DeviceFacade:
             self.deviceV1.screenshot(path)
         else:
             self.deviceV2.screenshot(path)
-    
+
     def dump_hierarchy(self, path):
         xml_dump = ''
         if self.deviceV1 is not None:
             xml_dump = self.deviceV1.dump()
         else:
             xml_dump = self.deviceV2.dump_hierarchy()
-        
+
         with open(path, 'w') as outfile:
             outfile.write(xml_dump)
 
@@ -150,6 +150,14 @@ class DeviceFacade:
                 import uiautomator2
                 try:
                     self.viewV2.click(UI_TIMEOUT_LONG)
+                except uiautomator2.JSONRPCError as e:
+                    raise DeviceFacade.JsonRpcError(e)
+
+        def pinch(self):
+            if self.viewV1 is not None:
+                import uiautomator2
+                try:
+                    self.viewV2.pinchOpen(0.80)
                 except uiautomator2.JSONRPCError as e:
                     raise DeviceFacade.JsonRpcError(e)
 
