@@ -21,7 +21,7 @@ from src.navigation import navigate, Tabs
 from src.persistent_list import PersistentList
 from src.report import print_full_report, print_short_report
 from src.session_state import SessionState, SessionStateEncoder
-from src.storage import Storage
+from src.database import Database as Storage
 from src.utils import *
 
 device_id = None

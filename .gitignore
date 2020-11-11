@@ -2,6 +2,7 @@
 /.idea
 interacted_users.*
 sessions.json
+data.db
 *.pyc
 .DS_Store
 screenshots
