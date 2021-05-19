@@ -9,19 +9,20 @@ USER_LAST_INTERACTION = "last_interaction"
 USER_FOLLOWING_STATUS = "following_status"
 FILENAME_INTERACTED_USERS = "interacted_users.json"
 
-
 class Database:
     def __init__(self, username):
         if username is None:
-            print(COLOR_FAIL + "No username, thus the script won't get access to interacted users and sessions data" +
-                  COLOR_ENDC)
+            print("No username, thus the script won't get access to interacted users and sessions data")
             return
 
         if not os.path.exists(username):
-            os.makedirs(my_username)
+	          os.makedirs(username)
+	          print("bonjour")
         self.conn = sqlite3.connect(f'{username}/data.db')
+        print("tabarnak")
         self.c = self.conn.cursor()
         self.init_tables()
+        print("POUTINE")
 
     def init_tables(self):
         self.c.execute('''CREATE TABLE IF NOT EXISTS interaction
