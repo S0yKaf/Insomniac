@@ -12,7 +12,7 @@ FILENAME_INTERACTED_USERS = "interacted_users.json"
 class Database:
     def __init__(self, username):
         if username is None:
-            print("No username, thus the script won't get access to interacted users and sessions data")
+            print(COLOR_FAIL + "No username, thus the script won't get access to interacted users and sessions data" + COLOR_ENDC)
             return
 
         if not os.path.exists(username):
