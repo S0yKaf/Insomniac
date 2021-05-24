@@ -9,11 +9,11 @@ def get_my_profile_info(device):
     random_sleep()
     update_interaction_rect(device)
 
-    # username = None
-    # title_view = device.find(resourceId='com.instagram.android:id/title_view',
-    #                          className='android.widget.TextView')
-
     username = input("Enter your IG username: ")
+    # username = None
+    title_view = device.find(resourceId='com.instagram.android:id/title_view',
+                              className='android.widget.TextView')
+
     if title_view.exists():
         username = title_view.get_text()
     else:
